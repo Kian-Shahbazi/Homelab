@@ -6,7 +6,7 @@ Einheitliches, gut strukturiertes Benennungsschema für alle virtuellen Maschine
 
 ## 📚 Aufbau der Konvention
 
-<standort><cluster><os><resourcentyp>-<rolle>-<nummer>
+Aufbau in standort, cluster, os, resourcentyp, rolle, nummer
 
 ### Komponenten im Detail
 
