@@ -4,8 +4,6 @@
 
 Einheitliches, gut strukturiertes Benennungsschema für alle virtuellen Maschinen, Container und Templates im Homelab-Cluster, basierend auf Standort, Rolle und Ressourcentyp.
 
----
-
 ## 📚 Aufbau der Konvention
 
 <standort><cluster><os><resourcentyp>-<rolle>-<nummer>
