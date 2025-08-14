@@ -30,7 +30,6 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 BREW_PACKAGES=(
     tmux
     neovim
-    vim
     git
     rsync
     fzf

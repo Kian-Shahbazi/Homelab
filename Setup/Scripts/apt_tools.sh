@@ -23,6 +23,7 @@ APT_PACKAGES=(
     iftop
     lsof
     mtr
+    vim
     zsh
 )
 
