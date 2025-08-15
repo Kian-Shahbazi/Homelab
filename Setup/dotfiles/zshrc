@@ -1,0 +1,110 @@
+#######################
+#   Startup Shell     #
+#######################
+
+#Ensure Homebrew binaries are in PATH
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+#Setup Starship
+eval "$(starship init zsh)"
+export STARSHIP_CONFIG=/home/kian/.config/starship/starship.toml
+
+#Message
+echo "┌────────────────────────────────────┐";
+echo "│ ____  _____ ____  ____ ___    _    │";
+echo "│|  _ \| ____/ ___||  _ \_ _|  / \   │";
+echo "│| | | |  _| \___ \| |_) | |  / _ \  │";
+echo "│| |_| | |___ ___) |  __/| | / ___ \ │";
+echo "│|____/|_____|____/|_|  |___/_/   \_\│";
+echo "└────────────────────────────────────┘";
+
+echo "Hallo Kian, es ist $(date) 🦆"
+export PATH=$HOME/.local/bin:$PATH
+
+#Loader
+#source <(kubectl completion zsh)
+
+#export KUBECONFIG=~/.kube/config
+
+#######################
+#   Oh-My-Zsh Conf    #
+#######################
+
+# Path to your Oh My Zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# Set name of the theme to load -> See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME=""
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+# Add ZSHELL Plugins
+# Standard plugins => $ZSH/plugins/
+# Custom plugins => $ZSH_CUSTOM/plugins/
+plugins=(
+  git
+  zsh-autosuggestions
+)
+
+source $ZSH/oh-my-zsh.sh
+
+#######################
+#  User Configuration #
+#######################
+
+# You may need to manually set your language environment
+  export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='nvim'
+# fi
+
+#######################
+#       Aliases       #
+#######################
+
+# The $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# Full list run `alias`
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Dirs
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+
+#Listing & Searching
+alias lla="ls -lah"   # Detailed list with hidden files
+alias lt="ls -lt"    # Sort by modification time
+alias findf="find . -type f -name"  # Usage: findf "*.txt"
+
+#Kubernetes Minikube
+alias mk="minikube kubectl --"
+
+# K8S
+alias k="kubectl"
+alias ka="kubectl apply -f"
+alias kg="kubectl get"
+alias kd="kubectl describe"
+alias kdel="kubectl delete"
+alias kl="kubectl logs"
+alias kgpo="kubectl get pod"
+alias kgd="kubectl get deployments"
+alias kc="kubectx"
+alias kns="kubens"
+alias kl="kubectl logs -f"
+alias ke="kubectl exec -it"
+alias kcns='kubectl config set-context --current --namespace'
+
+#######################
+#       Homebrew      #
+#######################
+
+#Setup fzf key bindings and fuzzy completion
+source <(fzf --zsh)
