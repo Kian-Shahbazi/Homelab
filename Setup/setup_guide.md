@@ -80,3 +80,8 @@ git clone git@github.com:Kian-Shahbazi/lazyvim.git ~/.config/nvim
 ```bash
 nvim
 ```
+4. Ensure LazyGit
+```bash
+mkdir -p ~/.config/lazygit
+touch ~/.config/lazygit/config.yml
+```
