@@ -85,3 +85,12 @@ nvim
 mkdir -p ~/.config/lazygit
 touch ~/.config/lazygit/config.yml
 ```
+Other doings!!!
+===============
+1. Create SSH-Key and lock root-user login access
+```bash
+ssh-keygen -t ed25519 -C "dhlcl-master-key" -f ~/.ssh/dhlcl_master_key
+#In /etc/ssh/sshd_config
+PermitRootLogin no
+DenyUsers root
+```
