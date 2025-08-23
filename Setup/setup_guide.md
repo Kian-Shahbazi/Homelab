@@ -85,12 +85,25 @@ nvim
 mkdir -p ~/.config/lazygit
 touch ~/.config/lazygit/config.yml
 ```
-Other doings!!!
+Other doings
 ===============
-1. Create SSH-Key and lock root-user login access
+1. Only one time - Create SSH-Key and lock root-user login access
 ```bash
 ssh-keygen -t ed25519 -C "dhlcl-master-key" -f ~/.ssh/dhlcl_master_key
 #In /etc/ssh/sshd_config
 PermitRootLogin no
 DenyUsers root
+```
+2. On every new VM you created - Generate new host keys and enable ssh service
+```bash
+sudo ssh-keygen -A
+sudo systemctl start ssh.service
+sudo systemctl enable ssh.service
+```
+3. On every new VM you created - Set a new hostname for the vm
+```bash
+sudo hostnamectl set-hostname new-name
+#Also change /etc/hosts to the new name
+debian.local = FQDN
+debian = shortname
 ```

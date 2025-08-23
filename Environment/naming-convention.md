@@ -25,12 +25,12 @@ Structure: location, cluster, OS, resource type, role, instance number
 
 | Name                      | Purpose                                     |
 |---------------------------|---------------------------------------------|
-| `dhlcl-template-os-base`  | Base template for Ubuntu/Linux VMs          |
-| `dhlcl-vm-ctrl-1`         | Controller VM (e.g., Ansible, Monitoring)   |
-| `dhlcl-vm-dock-1`         | Docker host                                 |
-| `dhlcl-vm-proxy-1`        | Reverse proxy (e.g., Traefik, Nginx)        |
-| `dhlcl-vm-smarthome-1`    | Home automation system (e.g., HAOS)         |
-| `dhlcl-lxc-dhcp-1`        | DHCP server as an LXC container             |
+| `dhlc-l-template-os-base`  | Base template for Ubuntu/Linux VMs         |
+| `dhlc-l-vm-ctrl-1`         | Controller VM (e.g., Ansible, Monitoring)  |
+| `dhlc-l-vm-dock-1`         | Docker host                                |
+| `dhlc-l-vm-proxy-1`        | Reverse proxy (e.g., Traefik, Nginx)       |
+| `dhlc-l-vm-smarthome-1`    | Home automation system (e.g., HAOS)        |
+| `dhlc-l-lxc-dhcp-1`        | DHCP server as an LXC container            |
 
 ---
 
