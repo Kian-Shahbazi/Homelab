@@ -50,4 +50,4 @@ This host is **not intended to run workloads**, but rather to provide a stable a
 ## 📚 Notes
 
 - **Created Ansible-key** -> Created `ansible-aluber` key for the controll host to be able to connect to all other hosts.
-- **Created Github-key** -> Created `Aluber_Github` and added config to ssh for github connection.
+- **Created Github-key** -> Created `github-aluber` and added config to ssh for github connection.
