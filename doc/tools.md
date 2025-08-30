@@ -46,3 +46,36 @@ Two separate setup scripts handle installation:
 - **Access to latest features** – Cutting-edge utilities are always up to date.
 - **Easy maintenance** – Clear separation of concerns between stable and fast-moving packages.
 - **Faster rebuilds** – Quickly replicate the same working environment on new VMs.
+
+Base Systemtools
+===============
+
+Must have:
+----------------------------------------------
+* tmux
+* vim
+* curl
+* htop
+* unzip/zip
+* ncdu
+* tree
+* openssh-client
+* net-tools
+* lsb-release/neofetch
+* dnsutils
+* git
+* rsync
+* nmap/tcpdump
+* iptables/ufw
+* iftop
+* lsof
+* mtr
+
+For Comfort:
+----------------------------------------------
+* Full Shell setup (starship + zshell)
+* brew
+* fzf
+* neovim
+* lazygit
+* lazydocker

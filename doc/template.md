@@ -18,12 +18,11 @@ The list is designed to be **extensible** — simply add more sections when new 
 ### **Debian 12 – Base Administration Template**
 - **OS:** Debian GNU/Linux 12 (Bookworm)
 - **Purpose:** Base environment for administration tools and testing
-- **Host IP:** `192.168.2.170`
 - **Default User:** `albaz`
 
 **SSH Connection:**
 ```bash
-ssh albaz@192.168.2.170
+ssh albaz@""
 ```
 
 **Optional ~/.ssh/config Entry:**
