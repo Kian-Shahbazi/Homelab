@@ -2,9 +2,9 @@
 # playbooks/docker-setup-robust.yml
 - name: Docker specific tasks for Debian 12
   hosts: docker
-  become: yes
-  gather_facts: yes
-  
+  become: true
+  gather_facts: true
+
   tasks:
     - name: Install Docker dependencies
       apt:
@@ -17,14 +17,14 @@
         state: present
         update_cache: yes
       when: ansible_os_family == "Debian"
-        
+
     - name: Create keyrings directory
       file:
         path: /etc/apt/keyrings
         state: directory
-        mode: '0755'
+        mode: "0755"
       when: ansible_os_family == "Debian"
-        
+
     - name: Add Docker GPG key using shell command
       shell: |
         curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
@@ -32,19 +32,19 @@
       args:
         creates: /etc/apt/keyrings/docker.gpg
       when: ansible_os_family == "Debian"
-        
+
     - name: Add Docker repository
       shell: |
         echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
       args:
         creates: /etc/apt/sources.list.d/docker.list
       when: ansible_os_family == "Debian"
-        
+
     - name: Update package cache after adding repository
       apt:
         update_cache: yes
       when: ansible_os_family == "Debian"
-        
+
     - name: Install Docker CE
       apt:
         name:
@@ -55,62 +55,62 @@
           - docker-compose-plugin
         state: present
       when: ansible_os_family == "Debian"
-        
+
     - name: Add user to docker group
       user:
         name: "{{ ansible_user }}"
         groups: docker
         append: yes
-        
+
     - name: Start and enable Docker service
       systemd:
         name: docker
         state: started
         enabled: yes
         daemon_reload: yes
-        
+
     - name: Get latest Docker Compose version
       uri:
         url: https://api.github.com/repos/docker/compose/releases/latest
         return_content: yes
       register: compose_release
-      
+
     - name: Install latest Docker Compose (standalone)
       get_url:
         url: "https://github.com/docker/compose/releases/download/{{ compose_release.json.tag_name }}/docker-compose-linux-x86_64"
         dest: /usr/local/bin/docker-compose
-        mode: '0755'
+        mode: "0755"
         owner: root
         group: root
-        
+
     - name: Create symbolic link for docker-compose
       file:
         src: /usr/local/bin/docker-compose
         dest: /usr/bin/docker-compose
         state: link
-        
+
     - name: Verify Docker installation
       command: docker --version
       register: docker_version
       changed_when: false
-      
+
     - name: Verify Docker Compose installation
       command: docker-compose --version
       register: docker_compose_version
       changed_when: false
-      
+
     - name: Display Docker version information
       debug:
         msg: |
           Docker version: {{ docker_version.stdout }}
           Docker Compose version: {{ docker_compose_version.stdout }}
-          
+
     - name: Test Docker functionality
       command: docker run --rm hello-world
       register: docker_test
       changed_when: false
       become_user: "{{ ansible_user }}"
-      
+
     - name: Display Docker test result
       debug:
         msg: "Docker test successful - container ran and exited properly"

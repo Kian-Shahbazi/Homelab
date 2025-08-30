@@ -2,9 +2,9 @@
 # playbooks/system-update.yml
 - name: Update all systems
   hosts: all
-  become: yes
-  gather_facts: yes
-  
+  become: true
+  gather_facts: true
+
   tasks:
     - name: Update apt packages (Ubuntu/Debian)
       apt:
@@ -12,7 +12,7 @@
         upgrade: yes
       when: ansible_os_family == "Debian"
       register: apt_update_result
-      
+
     - name: Display apt update results
       debug:
         msg: "APT update completed on {{ inventory_hostname }}"
@@ -21,9 +21,9 @@
       shell: |
         export PATH="/home/linuxbrew/.linuxbrew/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
         brew update && brew upgrade
-      become: no
+      become: false
       register: brew_update_result
-      failed_when: false  # Ignore failures (e.g., if brew not installed)
+      failed_when: false # Ignore failures (e.g., if brew not installed)
       changed_when: "'Already up-to-date' not in brew_update_result.stdout"
     - name: Display Homebrew update results
       debug:
