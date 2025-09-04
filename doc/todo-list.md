@@ -7,7 +7,6 @@ This file helps me keep track of progress and avoid forgetting things.
 
 ## ✅ ToDo List
 
-- [Install Lazydocker on Docker Host]
 - [Setup Kubernetes Nodes]
 
 ---

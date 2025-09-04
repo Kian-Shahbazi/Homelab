@@ -35,6 +35,7 @@ BREW_PACKAGES=(
     fzf
     neofetch
     lazygit
+    lazydocker
     starship
 )
 

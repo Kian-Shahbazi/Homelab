@@ -39,6 +39,7 @@ This host is **intended to run workloads**, but rather the kinds of workloads wh
 
 - **Base-apt and Base-brew** → [apt_tools.sh](/Setup/Scripts/apt_tools.sh) [brew_tools.sh](/Setup/Scripts/brew_tools.sh)
 - **Docker** → Containerization
+- **Docker-Compose** → Multi-container application
 - **lazydocker** → Terminal UI for Docker management.
 
 ---
