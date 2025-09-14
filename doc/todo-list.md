@@ -7,7 +7,6 @@ This file helps me keep track of progress and avoid forgetting things.
 
 ## ✅ ToDo List
 
-- [Setup Kubernetes Nodes]
 - [Update VM`s Debian 12 -> 13]
 
 ---
