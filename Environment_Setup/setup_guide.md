@@ -109,5 +109,5 @@ debian = shortname
 ```
 4. Connect host to the ansible host - Ansible infrastrucutre
 ```bash
-ssh-copy-id -i ~/.ssh/id_ed25519.pub albaz@192.168.2.172
+ssh-copy-id -i ~/.ssh/id_ed25519.pub user@ip
 ```
