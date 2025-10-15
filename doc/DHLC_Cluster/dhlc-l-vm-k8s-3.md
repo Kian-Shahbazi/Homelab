@@ -24,8 +24,8 @@ This host is **specifically intended to run application workloads** and serves a
 | **VM ID**            | 502                                                               |
 | **Node**             | `dhlc-l-vm-k8s-3`                                                |
 | **vCPUs**            | 2 (1 socket, 2 cores) – x86-64 with AES support                   |
-| **Memory (RAM)**     | 5 GiB (configurable, Ballooning optional for flexibility)         |
-| **Disk**             | 16 GiB (VirtIO SCSI, with I/O thread enabled)                     |
+| **Memory (RAM)**     | 6 GiB (configurable, Ballooning optional for flexibility)         |
+| **Disk**             | 60 GiB (VirtIO SCSI, with I/O thread enabled)                     |
 | **BIOS**             | SeaBIOS                                                           |
 | **Machine Type**     | i440fx (default)                                                  |
 | **SCSI Controller**  | VirtIO SCSI single                                                |
@@ -37,7 +37,7 @@ This host is **specifically intended to run application workloads** and serves a
 ## 🛠️ Installed Tools
 
 - **Base-apt and Base-brew** → [apt_tools.sh](/Setup/Scripts/apt_tools.sh) [brew_tools.sh](/Setup/Scripts/brew_tools.sh)
-- **RKE2** → Rancher Kubernetes Engine
+- **k3s** → Minimal Kubernetes Engine for 3 nodes
 
 ---
 
