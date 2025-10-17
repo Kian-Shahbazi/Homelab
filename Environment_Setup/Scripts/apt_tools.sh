@@ -25,6 +25,8 @@ APT_PACKAGES=(
     mtr
     vim
     zsh
+    k9s
+    kubectl
 )
 
 # Install all packages
