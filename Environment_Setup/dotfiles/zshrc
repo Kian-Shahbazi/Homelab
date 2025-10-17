@@ -21,11 +21,6 @@ echo "└───────────────────────�
 echo "Hallo Kian, es ist $(date) 🦆"
 export PATH=$HOME/.local/bin:$PATH
 
-#Loader
-#source <(kubectl completion zsh)
-
-#export KUBECONFIG=~/.kube/config
-
 #######################
 #   Oh-My-Zsh Conf    #
 #######################
@@ -47,6 +42,10 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+
+#Loader
+#source <(kubectl completion zsh)
+#export KUBECONFIG=~/.kube/config
 
 #######################
 #  User Configuration #
