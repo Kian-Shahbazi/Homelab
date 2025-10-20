@@ -7,7 +7,7 @@ This file helps me keep track of progress and avoid forgetting things.
 
 ## ✅ ToDo List
 
-- [Update VM`s Debian 12 -> 13]
+-
 
 ---
 
@@ -16,7 +16,6 @@ This file helps me keep track of progress and avoid forgetting things.
 - [Try out some Docker Containers]
 - [Docker Container homepage]
 - [Docker Container Pi-Hole/Adguard]
-- [Install rke2 via ansible lablabs role]
 
 ---
 
