@@ -38,6 +38,8 @@ BREW_PACKAGES=(
     lazydocker
     starship
     k9s
+    kubectl
+    helm
 )
 
 echo "📦 Installing Brew packages: ${BREW_PACKAGES[*]}"

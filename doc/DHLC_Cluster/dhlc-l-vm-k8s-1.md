@@ -36,8 +36,8 @@ This host is **not intended to run application workloads**, but rather focuses o
 
 ## 🛠️ Installed Tools
 
-- **Base-apt and Base-brew** → [apt_tools.sh](/Environment_Setup/Scripts/apt_tools.sh) [brew_tools.sh](/Environment_Setup/Scripts/brew_tools.sh)
-- **k3s** (Minimal Kubernetes Engine for 3 nodes) → [k3s.md](/Environment_Setup/k3s.md)
+- **Base-apt and Base-brew** → [apt_tools.sh](/Environment/Scripts/apt_tools.sh) [brew_tools.sh](/Environment/Scripts/brew_tools.sh)
+- **k3s** (Minimal Kubernetes Engine for 3 nodes) → [k3s.md](/Environment/Setup/k3s.md)
 - **Rancher** → Rancher UI
 
 ---

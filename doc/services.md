@@ -20,21 +20,24 @@ It serves as a central reference point to keep track of the infrastructure as it
 ### Control Nodes
 | Node Name      | Services Installed |
 |----------------|--------------------|
-| **dhl-l-ctrl-1** | - Ansible |
+| **dhlc-l-ctrl-1** | - Ansible |
 
 ---
 
 ### Docker Nodes
 | Node Name      | Services Installed     |
 |----------------|------------------------|
-| **dhl-l-dock-1** | - Docker <br> - Docker Compose |
+| **dhlc-l-dock-1** | - Docker <br> - Docker Compose |
 
 ---
 
 ### Kubernetes Nodes *(planned)*
 | Node Name      | Services Installed |
 |----------------|--------------------|
-| _TBD_          | - Kubernetes <br> - Helm <br> - Monitoring (Prometheus/Grafana) |
+| **dhlc-l-vm-k8s-1**          | - Kubernetes <br> - Helm <br> - Monitoring (Prometheus/Grafana) |
+| **dhlc-l-vm-k8s-2**          | - Kubernetes <br> - Helm <br> - Monitoring (Prometheus/Grafana) |
+| **dhlc-l-vm-k8s-3**          | - Kubernetes <br> - Helm <br> - Monitoring (Prometheus/Grafana) |
+
 
 ---
 
@@ -43,7 +46,7 @@ This section gives a high-level view of services across nodes.
 
 | Service            | Node(s)         | Notes |
 |--------------------|-----------------|-------|
-| **Ansible**        | dhl-l-ctrl-1    | Used for automation & orchestration |
-| **Docker**         | dhl-l-dock-1    | Container runtime |
-| **Docker Compose** | dhl-l-dock-1    | Multi-container orchestration |
-| **Kubernetes** *(planned)* | _TBD_ | Cluster management, container orchestration |
+| **Ansible**        | dhlc-l-ctrl-1    | Used for automation & orchestration |
+| **Docker**         | dhlc-l-dock-1    | Container runtime |
+| **Docker Compose** | dhlc-l-dock-1    | Multi-container orchestration |
+| **Kubernetes** *(planned)* | dhlc-l-vm-k8s-1, dhlc-l-vm-k8s-2, dhlc-l-vm-k8s-3 | Cluster management, container orchestration |

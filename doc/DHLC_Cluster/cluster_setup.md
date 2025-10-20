@@ -31,4 +31,5 @@ Build a **5-node homelab cluster** for experimenting with modern infrastructure,
 
 ## 💾 Storage Plan
 
+ - **NAS Storage** Implementing Network Attached Storage
 ---
