@@ -2,6 +2,10 @@ Setup work environment
 ===============
 This will be a guide to setting up the desired work environment.
 
+Note
+===============
+For Installing the tools, use these scripts ->  **[Scripts/](./Environment/Automation/Scripts)**
+
 Possible Prefix Installations
 ===============
 1. Kubectl -> [dotfiles/Setup.mdKubectl Installation](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)

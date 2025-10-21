@@ -32,9 +32,6 @@ Everything needed to bootstrap and automate the working environment.
 
 ---
 
-✅ **Tip:** Start with the [Environment/Setup/workspace_setup.md](./Environment/Setup/workspace_setup.md) guide for a smooth onboarding process.
-
-
 ## 🧠 Goals
 
 - Learn and apply **DevOps**, **networking**, and **system administration** principles
