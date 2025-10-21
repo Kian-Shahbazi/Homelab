@@ -1,0 +1,171 @@
+---
+# K3s Cluster Installation Playbook
+# This playbook installs K3s on 3 server nodes in HA mode with embedded etcd
+
+- name: Install K3s on primary server node (k8s-host-01)
+  hosts: k8s-host-01
+  become: true
+  tasks:
+    - name: Check if K3s is already installed
+      stat:
+        path: /usr/local/bin/k3s
+      register: k3s_binary
+
+    - name: Install K3s as primary server with cluster-init
+      shell: |
+        curl -sfL https://get.k3s.io | sh -s - server --cluster-init
+      when: not k3s_binary.stat.exists
+
+    - name: Wait for K3s to be ready
+      wait_for:
+        path: /var/lib/rancher/k3s/server/node-token
+        state: present
+        timeout: 120
+
+    - name: Wait for K3s service to be active
+      systemd:
+        name: k3s
+        state: started
+      register: k3s_service
+      until: k3s_service.status.ActiveState == "active"
+      retries: 10
+      delay: 10
+
+    - name: Get K3s node token
+      slurp:
+        src: /var/lib/rancher/k3s/server/node-token
+      register: k3s_token
+
+    - name: Get primary server IP
+      set_fact:
+        primary_ip: "{{ ansible_host }}"
+      # This uses the ansible_host from your hosts.yml (192.168.2.172)
+
+    - name: Display primary server info (for debugging)
+      debug:
+        msg:
+          - "Primary server IP: {{ primary_ip }}"
+          - "K3s token retrieved successfully"
+
+    - name: Verify k8s-host-01 is ready
+      shell: k3s kubectl get nodes
+      register: node_status
+      until: "'Ready' in node_status.stdout"
+      retries: 10
+      delay: 10
+
+    - name: Show node status
+      debug:
+        msg: "{{ node_status.stdout_lines }}"
+
+- name: Install K3s on secondary server nodes (k8s-host-02, k8s-host-03)
+  hosts: k8s_workers
+  become: true
+  serial: 1 # Join one at a time to avoid race conditions
+  tasks:
+    - name: Check if K3s is already installed
+      stat:
+        path: /usr/local/bin/k3s
+      register: k3s_binary
+
+    - name: Get primary server IP from k8s-host-01
+      set_fact:
+        primary_ip: "{{ hostvars['k8s-host-01']['primary_ip'] }}"
+      # This retrieves the IP that was set on k8s-host-01
+
+    - name: Get K3s token from k8s-host-01
+      set_fact:
+        k3s_token: "{{ hostvars['k8s-host-01']['k3s_token']['content'] | b64decode | trim }}"
+      # This retrieves and decodes the token from k8s-host-01
+
+    - name: Display join info (for debugging)
+      debug:
+        msg:
+          - "Joining cluster at: https://{{ primary_ip }}:6443"
+          - "Using token from k8s-host-01"
+          - "Current node: {{ inventory_hostname }}"
+
+    - name: Install K3s and join cluster as server
+      shell: |
+        curl -sfL https://get.k3s.io | sh -s - server \
+          --server https://{{ primary_ip }}:6443 \
+          --token {{ k3s_token }}
+      when: not k3s_binary.stat.exists
+
+    - name: Wait for K3s service to be active
+      systemd:
+        name: k3s
+        state: started
+      register: k3s_service
+      until: k3s_service.status.ActiveState == "active"
+      retries: 10
+      delay: 10
+
+    - name: Wait for node to join cluster
+      pause:
+        seconds: 30
+        prompt: "Waiting for {{ inventory_hostname }} to join cluster..."
+
+- name: Verify K3s cluster
+  hosts: k8s-host-01
+  become: true
+  tasks:
+    - name: Wait for all nodes to be ready
+      shell: k3s kubectl get nodes
+      register: cluster_status
+      until: cluster_status.stdout_lines | select('search', 'Ready') | list | length == 3
+      retries: 20
+      delay: 15
+
+    - name: Display cluster status
+      shell: k3s kubectl get nodes -o wide
+      register: nodes_output
+
+    - name: Show all nodes
+      debug:
+        msg: "{{ nodes_output.stdout_lines }}"
+
+    - name: Check system pods
+      shell: k3s kubectl get pods -n kube-system
+      register: pods_output
+
+    - name: Show system pods
+      debug:
+        msg: "{{ pods_output.stdout_lines }}"
+
+    - name: Verify Traefik is running
+      shell: k3s kubectl get pods -n kube-system -l app.kubernetes.io/name=traefik
+      register: traefik_output
+
+    - name: Show Traefik status
+      debug:
+        msg: "{{ traefik_output.stdout_lines }}"
+
+    - name: Get cluster info
+      shell: k3s kubectl cluster-info
+      register: cluster_info
+
+    - name: Create success message
+      debug:
+        msg: |
+          ========================================
+          K3s Cluster Installation Complete!
+          ========================================
+          Nodes in cluster:
+          {{ nodes_output.stdout }}
+
+          Cluster info:
+          {{ cluster_info.stdout }}
+
+          All 3 nodes are ready and running.
+          Traefik ingress controller is active.
+
+          Next steps:
+          1. Setup kubectl access from your laptop
+          2. Install Helm
+          3. Install Rancher
+
+          To access the cluster:
+          ssh {{ hostvars['k8s-host-01']['ansible_user'] }}@{{ hostvars['k8s-host-01']['ansible_host'] }}
+          sudo k3s kubectl get nodes
+          ========================================
