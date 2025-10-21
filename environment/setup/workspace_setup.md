@@ -30,7 +30,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
 5. Insert the finished zshell file to ~/home/$USER
-[.zshrc](environment/dotfiles/zshrc)
+[.zshrc](/environment/dotfiles/zshrc)
 
 Install starship
 ===============
@@ -38,7 +38,7 @@ Install starship
 ```bash
 brew install starship
 ```
-2. Copy the [starship.toml](environment/dotfiles/starship.toml)
+2. Copy the [starship.toml](/environment/dotfiles/starship.toml)
 and place it into  	`~/.config/starship/starship.toml`
 
 3. Install Nerd-Fonts if necessary -> [Nerd-Fond](https://www.nerdfonts.com/#home)
@@ -52,10 +52,9 @@ Note: For the theme to work a minimal tmux version of tmux 3.4 is required!
 brew install tmux
 ```
 2. Create config file
-```bash
-Copy the [tmux.conf](environment/dotfiles/tmux.conf)
+Copy the [tmux.conf](/environment/dotfiles/tmux.conf)
 and place it into  	`~/.config/tmux/tmux.conf`
-```
+
 3. Now create a Symlink for the config script
 ```bash
 ln -s ~/.config/tmux/tmux.conf ~/.tmux.conf
