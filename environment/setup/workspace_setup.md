@@ -4,7 +4,7 @@ This will be a guide to setting up the desired work environment.
 
 Note
 ===============
-For installing the tools, use these scripts → **[apt_tools.sh](/Environment/Automation/Scripts/apt_tools.sh)** or **[brew_tools.sh](/Environment/Automation/Scripts/brew_tools.sh)**.
+For installing the tools, use these scripts → **[apt_tools.sh](/environment/automation/scripts/apt_tools.sh)** or **[brew_tools.sh](/environment/automation/scripts/brew_tools.sh)**.
 
 Possible Prefix Installations
 ===============

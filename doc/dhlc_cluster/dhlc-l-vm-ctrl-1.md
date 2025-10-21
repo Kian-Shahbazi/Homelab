@@ -38,8 +38,8 @@ This host is **not intended to run workloads**, but rather to provide a stable a
 
 ## 🛠️ Installed Tools
 
-- **Base-apt and Base-brew** → [apt_tools.sh](/Environment/Scripts/apt_tools.sh) [brew_tools.sh](/Environment/Scripts/brew_tools.sh) ✅
-- **Ansible** → Infrastructure automation and provisioning. Installed via apt. ✅
+- **Base-apt and Base-brew** → [apt_tools.sh](/environment/scripts/apt_tools.sh) [brew_tools.sh](/environment/scripts/brew_tools.sh)
+- **Ansible** → Infrastructure automation and provisioning. Installed via apt.
 - **kubectl** → Kubernetes CLI for cluster management.
 - **helm** → Kubernetes package manager.
 - **k9s** → Terminal UI for Kubernetes management.

@@ -35,8 +35,8 @@ This host is **specifically intended to run application workloads** and serves a
 
 ## 🛠️ Installed Tools
 
-- **Base-apt and Base-brew** → [apt_tools.sh](/Environment/Automation/Scripts/apt_tools.sh) [brew_tools.sh](/Environment/Automation/Scripts/brew_tools.sh)
-- **k3s** (Minimal Kubernetes Engine for 3 nodes) → [k3s.md](/Environment/Setup/k3s.md)
+- **Base-apt and Base-brew** → [apt_tools.sh](/environment/automation/scripts/apt_tools.sh) [brew_tools.sh](/environment/automation/scripts/brew_tools.sh)
+- **k3s** (Minimal Kubernetes Engine for 3 nodes) → [k3s.md](/environment/setup/k3s.md)
 
 ---
 

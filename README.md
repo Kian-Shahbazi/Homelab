@@ -15,20 +15,20 @@ A quick overview of the repository layout for documentation, environment setup, 
 ### 🧾 [doc/](./doc)
 Comprehensive documentation covering system design, standards, and cluster setup.
 
-- **[DHLC_Cluster/](./doc/DHLC_Cluster)** – Guides for cluster configuration and node setup
+- **[dhlc_cluster/](./doc/dhlc_cluster)** – Guides for cluster configuration and node setup
 - **[convention/](./doc/convention)** – Guides for naming conventions, os choice, services, tools and templates
 - [todo-list.md](./doc/todo-list.md) – Current project tasks
 
 ---
 
-### ⚙️ [Environment/](./Environment)
+### ⚙️ [environment/](./environment)
 Everything needed to bootstrap and automate the working environment.
 
-- **[Automation/](./Environment/Automation)** – Automated setup scripts and configurations
-  - **[Ansible/](./Environment/Automation/Ansible)** – Infrastructure automation via Ansible
-  - **[Scripts/](./Environment/Automation/Scripts)** – Quick setup utilities
-- **[dotfiles/](./Environment/dotfiles)** – Developer environment configuration
-- **[Setup/](./Environment/Setup)** – Environment setup documentation
+- **[automation/](./environment/automation)** – Automated setup scripts and configurations
+  - **[ansible/](./environment/automation/ansible)** – Infrastructure automation via Ansible
+  - **[scripts/](./environment/automation/scripts)** – Quick setup utilities
+- **[dotfiles/](./environment/dotfiles)** – Developer environment configuration
+- **[setup/](./environment/setup)** – Environment setup documentation
 
 ---
 

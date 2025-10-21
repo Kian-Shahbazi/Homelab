@@ -31,7 +31,7 @@ It serves as a central reference point to keep track of the infrastructure as it
 
 ---
 
-### Kubernetes Nodes *(planned)*
+### Kubernetes Nodes
 | Node Name      | Services Installed |
 |----------------|--------------------|
 | **dhlc-l-vm-k8s-1**          | - Kubernetes <br> - Helm <br> - Monitoring (Prometheus/Grafana) |
