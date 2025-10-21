@@ -16,19 +16,8 @@ A quick overview of the repository layout for documentation, environment setup, 
 Comprehensive documentation covering system design, standards, and cluster setup.
 
 - **[DHLC_Cluster/](./doc/DHLC_Cluster)** – Guides for cluster configuration and node setup
-  - [cluster_setup.md](./doc/DHLC_Cluster/cluster_setup.md)
-  - [dhlc-l-vm-ctrl-1.md](./doc/DHLC_Cluster/dhlc-l-vm-ctrl-1.md)
-  - [dhlc-l-vm-dock-1.md](./doc/DHLC_Cluster/dhlc-l-vm-dock-1.md)
-  - [dhlc-l-vm-k8s-1.md](./doc/DHLC_Cluster/dhlc-l-vm-k8s-1.md)
-  - [dhlc-l-vm-k8s-2.md](./doc/DHLC_Cluster/dhlc-l-vm-k8s-2.md)
-  - [dhlc-l-vm-k8s-3.md](./doc/DHLC_Cluster/dhlc-l-vm-k8s-3.md)
-- [naming-convention.md](./doc/naming-convention.md) – Naming rules for systems and resources
-- [vm-id-convention.md](./doc/vm-id-convention.md) – Virtual machine ID standards
-- [os_choice.md](./doc/os_choice.md) – OS selection rationale
-- [services.md](./doc/services.md) – List of active or planned services
-- [tools.md](./doc/tools.md) – Recommended tools and utilities
+- **[convention/](./doc/convention)** – Guides for naming conventions, os choice, services, tools and templates
 - [todo-list.md](./doc/todo-list.md) – Current project tasks
-- [template.md](./doc/template.md) – Base template for new documentation pages
 
 ---
 
@@ -37,24 +26,9 @@ Everything needed to bootstrap and automate the working environment.
 
 - **[Automation/](./Environment/Automation)** – Automated setup scripts and configurations
   - **[Ansible/](./Environment/Automation/Ansible)** – Infrastructure automation via Ansible
-    - [ansible-infrastructure/](./Environment/Automation/Ansible/ansible-infrastructure)
-      - [ansible.cfg](./Environment/Automation/Ansible/ansible-infrastructure/ansible.cfg)
-      - [hosts.yml](./Environment/Automation/Ansible/ansible-infrastructure/inventories/production/hosts.yml)
-      - Playbooks:
-        - [docker-setup-robust.yaml](./Environment/Automation/Ansible/ansible-infrastructure/playbooks/docker-setup-robust.yaml)
-        - [k3s-install.yaml](./Environment/Automation/Ansible/ansible-infrastructure/playbooks/k3s-install.yaml)
-        - [system-update.yaml](./Environment/Automation/Ansible/ansible-infrastructure/playbooks/system-update.yaml)
-    - [Setup.md](./Environment/Automation/Ansible/Setup.md) – Ansible setup guide
   - **[Scripts/](./Environment/Automation/Scripts)** – Quick setup utilities
-    - [apt_tools.sh](./Environment/Automation/Scripts/apt_tools.sh)
-    - [brew_tools.sh](./Environment/Automation/Scripts/brew_tools.sh)
 - **[dotfiles/](./Environment/dotfiles)** – Developer environment configuration
-  - [zshrc](./Environment/dotfiles/zshrc)
-  - [tmux.conf](./Environment/dotfiles/tmux.conf)
-  - [starship.toml](./Environment/dotfiles/starship.toml)
 - **[Setup/](./Environment/Setup)** – Environment setup documentation
-  - [workspace_setup.md](./Environment/Setup/workspace_setup.md)
-  - [k3s.md](./Environment/Setup/k3s.md)
 
 ---
 
