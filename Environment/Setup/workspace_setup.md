@@ -4,7 +4,7 @@ This will be a guide to setting up the desired work environment.
 
 Note
 ===============
-For Installing the tools, use these scripts ->  **[Scripts/](./Environment/Automation/Scripts)**
+For Installing the tools, use these scripts ->  **[Automation/Scripts/](./Environment/Automation/Scripts)**
 
 Possible Prefix Installations
 ===============
