@@ -7,6 +7,8 @@ It is designed to be **scalable, modular, and maintainable** for managing multip
 ---
 
 ## 🌳 Directory Tree
+`~/Environment/Automation/Ansible/ansible-infrastructure/`
+
 ansible-infrastructure/
 ├── ansible.cfg # ⚙️ Main Ansible configuration file
 ├── inventories/ # 📦 Environment-specific inventories
@@ -14,7 +16,7 @@ ansible-infrastructure/
 │ └── hosts.yml # 📋 Inventory file for production hosts
 └── playbooks/ # 📜 Playbooks for automated tasks
 ├── docker-setup-robust.yaml # 🐳 Robust Docker setup playbook
-└── system-update.yaml # 🔄 System update and maintenance playbo
+└── system-update.yaml # 🔄 System update and maintenance playbook
 
 
 ---
