@@ -70,6 +70,8 @@ Must have:
 * iftop
 * lsof
 * mtr
+* kubectl
+* helm
 
 For Comfort:
 ----------------------------------------------
@@ -79,3 +81,4 @@ For Comfort:
 * neovim
 * lazygit
 * lazydocker
+* k9s

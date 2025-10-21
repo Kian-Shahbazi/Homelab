@@ -2,7 +2,7 @@
 # K3s Cluster Installation Playbook
 # This playbook installs K3s on 3 server nodes in HA mode with embedded etcd
 
-- name: Install K3s on primary server node (k8s-host-01)
+- name: Install K3s on first server node (k8s-host-01)
   hosts: k8s-host-01
   become: true
   tasks:
@@ -11,7 +11,7 @@
         path: /usr/local/bin/k3s
       register: k3s_binary
 
-    - name: Install K3s as primary server with cluster-init
+    - name: Install K3s as first server with cluster-init
       shell: |
         curl -sfL https://get.k3s.io | sh -s - server --cluster-init
       when: not k3s_binary.stat.exists
@@ -36,15 +36,14 @@
         src: /var/lib/rancher/k3s/server/node-token
       register: k3s_token
 
-    - name: Get primary server IP
+    - name: Get first server IP
       set_fact:
-        primary_ip: "{{ ansible_host }}"
-      # This uses the ansible_host from your hosts.yml (192.168.2.172)
+        first_server_ip: "{{ ansible_host }}"
 
-    - name: Display primary server info (for debugging)
+    - name: Display first server info (for debugging)
       debug:
         msg:
-          - "Primary server IP: {{ primary_ip }}"
+          - "First server IP: {{ first_server_ip }}"
           - "K3s token retrieved successfully"
 
     - name: Verify k8s-host-01 is ready
@@ -58,8 +57,8 @@
       debug:
         msg: "{{ node_status.stdout_lines }}"
 
-- name: Install K3s on secondary server nodes (k8s-host-02, k8s-host-03)
-  hosts: k8s_workers
+- name: Install K3s on remaining server nodes (k8s-host-02, k8s-host-03)
+  hosts: kubernetes:!k8s-host-01
   become: true
   serial: 1 # Join one at a time to avoid race conditions
   tasks:
@@ -68,27 +67,25 @@
         path: /usr/local/bin/k3s
       register: k3s_binary
 
-    - name: Get primary server IP from k8s-host-01
+    - name: Get first server IP from k8s-host-01
       set_fact:
-        primary_ip: "{{ hostvars['k8s-host-01']['primary_ip'] }}"
-      # This retrieves the IP that was set on k8s-host-01
+        first_server_ip: "{{ hostvars['k8s-host-01']['first_server_ip'] }}"
 
     - name: Get K3s token from k8s-host-01
       set_fact:
         k3s_token: "{{ hostvars['k8s-host-01']['k3s_token']['content'] | b64decode | trim }}"
-      # This retrieves and decodes the token from k8s-host-01
 
     - name: Display join info (for debugging)
       debug:
         msg:
-          - "Joining cluster at: https://{{ primary_ip }}:6443"
+          - "Joining cluster at: https://{{ first_server_ip }}:6443"
           - "Using token from k8s-host-01"
           - "Current node: {{ inventory_hostname }}"
 
     - name: Install K3s and join cluster as server
       shell: |
         curl -sfL https://get.k3s.io | sh -s - server \
-          --server https://{{ primary_ip }}:6443 \
+          --server https://{{ first_server_ip }}:6443 \
           --token {{ k3s_token }}
       when: not k3s_binary.stat.exists
 

@@ -7,24 +7,14 @@ It is designed to be **scalable, modular, and maintainable** for managing multip
 ---
 
 ## 🌳 Directory Tree
-~/ansible-infrastructure/
-├── ansible.cfg # ⚙️ Main Ansible configuration
+ansible-infrastructure/
+├── ansible.cfg # ⚙️ Main Ansible configuration file
 ├── inventories/ # 📦 Environment-specific inventories
-│ ├── production/ # 🏭 Production environment
-│ │ ├── hosts.yml # 📋 Production inventory
-│ │ └── group_vars/ # 🔑 Production group variables
-│ │ ├── all.yml # 🌐 Vars for all hosts
-│ │ ├── docker.yml # 🐳 Docker vars
-│ │ └── kubernetes.yml # ☸️ Kubernetes vars
-│ └── staging/ # 🧪 Staging environment (future use)
-│ ├── hosts.yml # 📋 Staging inventory
-│ └── group_vars/ # 🔑 Staging group variables
-├── group_vars/ # 🌍 Global group variables (optional)
-├── host_vars/ # 🎯 Host-specific variables
-├── roles/ # 🧩 Custom Ansible roles
-├── playbooks/ # 📜 Playbooks
-├── files/ # 📂 Static files
-└── templates/ # 📝 Jinja2 templates
+│ └── production/ # 🏭 Production environment configuration
+│ └── hosts.yml # 📋 Inventory file for production hosts
+└── playbooks/ # 📜 Playbooks for automated tasks
+├── docker-setup-robust.yaml # 🐳 Robust Docker setup playbook
+└── system-update.yaml # 🔄 System update and maintenance playbo
 
 
 ---

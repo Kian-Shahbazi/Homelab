@@ -7,15 +7,16 @@ This file helps me keep track of progress and avoid forgetting things.
 
 ## ✅ ToDo List
 
--
+- [Install Rancher UI]
 
 ---
 
 ## 💡 Ideas / Future Projects
 
 - [Try out some Docker Containers]
-- [Docker Container homepage]
+- [Enable homepage]
 - [Docker Container Pi-Hole/Adguard]
+- [Enable Gitops (ArgoCD)]
 
 ---
 

@@ -31,7 +31,6 @@ This host is **intended to run workloads**, but rather the kinds of workloads wh
 | **Machine Type**     | i440fx (default)                                                  |
 | **SCSI Controller**  | VirtIO SCSI single                                                |
 | **CD/DVD Drive**     | Debian 12.11.0 netinst ISO (installation media)                   |
-| **Network Device**   | VirtIO (bridge: `vmbr0`, firewall enabled, MAC: `BC:24:11:BC:2A:32`) |
 
 ---
 

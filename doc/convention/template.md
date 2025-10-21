@@ -28,7 +28,7 @@ ssh albaz@""
 **Optional ~/.ssh/config Entry:**
 ```
 Host debian12-template
-    HostName 192.168.2.170
+    HostName "IP-ADDRESS"
     User albaz
 ```
 > With this config, you can connect using:
