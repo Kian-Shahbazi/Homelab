@@ -6,88 +6,111 @@ Note
 ===============
 For installing the tools, use these scripts → **[apt_tools.sh](/environment/automation/scripts/apt_tools.sh)** or **[brew_tools.sh](/environment/automation/scripts/brew_tools.sh)**.
 
-Possible Prefix Installations
+Tool Install
 ===============
-1. Kubectl -> [dotfiles/Setup.mdKubectl Installation](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
-
-Install ZShell
-===============
-1. Install Zsh
+1. Use install scripts
 ```bash
-sudo apt update && sudo apt install zsh -y
+chmod +x apt_tools.sh brew_tools.sh
 ```
-2. Verify version
+2. Install brew tools
+```bash
+./brew_tools.sh
+```
+3. Install apt tools
+```bash
+./apt_tools.sh
+```
+
+Setup zsh
+===============
+1. Verify version
 ```bash
 zsh --version
+which zsh
 ```
-3. Set Zsh as Default Shell
+2. Set Zsh as Default Shell
 ```bash
 chsh -s $(which zsh)
 ```
-4. Install Oh My Zsh and Plugins
+3. Install Oh My Zsh and Plugins
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
-5. Insert the finished zshell file to ~/home/$USER
-[.zshrc](/environment/dotfiles/zshrc)
-
-Install starship
-===============
-1. Install Starship
+4. Copy the finished [zshrc](/environment/dotfiles/zshell/zshrc) file to ~/home/$USER
 ```bash
-brew install starship
+cp /environment/dotfiles/zshrc ~/.zshrc
 ```
-2. Copy the [starship.toml](/environment/dotfiles/starship.toml)
+
+Setup starship
+===============
+1. Copy the [starship.toml](/environment/dotfiles/starship.toml)
 and place it into  	`~/.config/starship/starship.toml`
+```bash
+mkdir -p ~/.config/starship
+cp /environment/dotfiles/starship/starship.toml ~/.config/starship/starship.toml
+```
+2. Install Nerd-Fonts -> [Nerd-Font](https://www.nerdfonts.com/#home)
+```bash
+git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
+cd nerd-fonts
+./install.sh JetBrainsMono
+```
 
-3. Install Nerd-Fonts if necessary -> [Nerd-Fond](https://www.nerdfonts.com/#home)
-
-Install tmux
+Setup tmux
 ===============
 Note: For the theme to work a minimal tmux version of tmux 3.4 is required!
 ---
-1. Install tmux
+
+1. Check version
 ```bash
-brew install tmux
+tmux -V
 ```
 2. Create config file
 Copy the [tmux.conf](/environment/dotfiles/tmux.conf)
 and place it into  	`~/.config/tmux/tmux.conf`
-
-3. Now create a Symlink for the config script
+```bash
+mkdir -p ~/.config/tmux
+cp /environment/dotfiles/tmux.conf ~/.config/tmux/tmux.conf
+```
+2. Now create a Symlink for the config script
 ```bash
 ln -s ~/.config/tmux/tmux.conf ~/.tmux.conf
 ```
-4. Install tmux plugin tpm
+3. Install tmux plugin tpm
 ```bash
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 ```
-5. Follow installation guide for [catppucin](https://github.com/catppuccin/tmux?tab=readme-ov-file)
-
+4. Follow installation guide for [catppucin](https://github.com/catppuccin/tmux?tab=readme-ov-file)
+```bash
+mkdir -p ~/.config/tmux/plugins/catppuccin
+git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
+```
+5. Add this line to the end of your ~/.config/tmux/tmux.conf
+```bash
+run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
+```
 6. After the config Script is finished you can Install it.
 ```bash
-präfix + I to Install or tmux source-file ~/.config/tmux/tmux.conf
+prefix + I to Install or tmux source-file ~/.config/tmux/tmux.conf
 ```
-Install lazyvim
+
+Setup lazyvim
 ===============
-1. Install Neovim
+1. add lazyvim git repo
 ```bash
-brew install neovim
+git clone git@github.com:Kian-Shahbazi/nvim.git ~/.config/nvim
 ```
-2. add lazyvim git repo
-```bash
-git clone https://github.com/LazyVim/LazyVim.git ~/.config/nvim
-```
-3. Launch it!
+2. Launch it!
 ```bash
 nvim
 ```
-4. Ensure LazyGit
+3. Ensure LazyGit
 ```bash
 mkdir -p ~/.config/lazygit
 touch ~/.config/lazygit/config.yml
 ```
+
 Other doings
 ===============
 1. Only one time - Create ssh-key and lock root-user login access
