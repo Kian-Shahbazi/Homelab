@@ -24,7 +24,7 @@ This host is **not intended to run application workloads**, but rather focuses o
 | **VM ID**            | 500                                                               |
 | **Node**             | `dhlc-l-vm-k8s-1`                                                |
 | **vCPUs**            | 4 (1 socket, 4 cores) – x86-64 with AES support                   |
-| **Memory (RAM)**     | 8 GiB (configurable, Ballooning optional for flexibility)         |
+| **Memory (RAM)**     | 10 GiB (configurable, Ballooning optional for flexibility)         |
 | **Disk**             | 80 GiB (VirtIO SCSI, with I/O thread enabled)                     |
 | **BIOS**             | SeaBIOS                                                           |
 | **Machine Type**     | i440fx (default)                                                  |

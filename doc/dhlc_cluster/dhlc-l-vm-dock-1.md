@@ -25,7 +25,7 @@ This host is **intended to run workloads**, but rather the kinds of workloads wh
 | **VM ID**            | 400                                                               |
 | **Node**             | `dhlc-l-vm-dock-1`                                                |
 | **vCPUs**            | 4 (1 socket, 4 cores) – x86-64 with AES support                   |
-| **Memory (RAM)**     | 6 GiB (configurable, Ballooning optional for flexibility)         |
+| **Memory (RAM)**     | 4 GiB (configurable, Ballooning optional for flexibility)         |
 | **Disk**             | 16 GiB (VirtIO SCSI, with I/O thread enabled)                     |
 | **BIOS**             | SeaBIOS                                                           |
 | **Machine Type**     | i440fx (default)                                                  |

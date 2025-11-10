@@ -7,8 +7,8 @@ This file helps me keep track of progress and avoid forgetting things.
 
 ## ✅ ToDo List
 
-- [Install Rancher UI]
-
+- [Backup VM´s]
+- [Update Proxmox 8.4 to a staple 9.x Version]
 ---
 
 ## 💡 Ideas / Future Projects
@@ -21,7 +21,5 @@ This file helps me keep track of progress and avoid forgetting things.
 ---
 
 ## 📓 Notes
-
-- [Update Proxmox 8.4 to a staple 9.x Version]
 
 ---

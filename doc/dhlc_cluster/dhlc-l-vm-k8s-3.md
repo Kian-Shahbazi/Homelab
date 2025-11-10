@@ -24,7 +24,7 @@ This host is **specifically intended to run application workloads** and serves a
 | **VM ID**            | 502                                                               |
 | **Node**             | `dhlc-l-vm-k8s-3`                                                |
 | **vCPUs**            | 2 (1 socket, 2 cores) – x86-64 with AES support                   |
-| **Memory (RAM)**     | 6 GiB (configurable, Ballooning optional for flexibility)         |
+| **Memory (RAM)**     | 8 GiB (configurable, Ballooning optional for flexibility)         |
 | **Disk**             | 60 GiB (VirtIO SCSI, with I/O thread enabled)                     |
 | **BIOS**             | SeaBIOS                                                           |
 | **Machine Type**     | i440fx (default)                                                  |
