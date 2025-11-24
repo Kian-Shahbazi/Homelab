@@ -7,13 +7,12 @@ This file helps me keep track of progress and avoid forgetting things.
 
 ## ✅ ToDo List
 
-- [Docker Container Pi-Hole]
+- [Enable homepage]
 
 ---
 
 ## 💡 Ideas / Future Projects
 
-- [Enable homepage]
 - [Enable Gitops (ArgoCD)]
 
 ---
