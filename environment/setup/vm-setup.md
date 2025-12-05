@@ -24,7 +24,7 @@ debian = shortname
 ```
 
 ### 3. Add VM to Control Node
-**Purpose:** Copy the SSH public key
+**Purpose:** Copy the SSH public key from the control node to the new VM.
 **Run this command FROM your control node:**
 ```bash
 ssh-copy-id -i ~/.ssh/id_ed25519.pub user@ip
